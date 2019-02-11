@@ -48,24 +48,13 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robond/workspace/myrobot
+CMAKE_SOURCE_DIR = /home/robond/workspace/Build_my_world_with_Gazebo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robond/workspace/myrobot/build
+CMAKE_BINARY_DIR = /home/robond/workspace/Build_my_world_with_Gazebo/build
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -78,11 +67,22 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robond/workspace/myrobot/build/CMakeFiles /home/robond/workspace/myrobot/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robond/workspace/Build_my_world_with_Gazebo/build/CMakeFiles /home/robond/workspace/Build_my_world_with_Gazebo/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robond/workspace/myrobot/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robond/workspace/Build_my_world_with_Gazebo/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -109,6 +109,19 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named welcom
+
+# Build rule for target.
+welcom: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 welcom
+.PHONY : welcom
+
+# fast build rule for target.
+welcom/fast:
+	$(MAKE) -f CMakeFiles/welcom.dir/build.make CMakeFiles/welcom.dir/build
+.PHONY : welcom/fast
 
 #=============================================================================
 # Target rules for targets named hello
@@ -150,18 +163,49 @@ script/hello.cpp.s:
 	$(MAKE) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/script/hello.cpp.s
 .PHONY : script/hello.cpp.s
 
+script/welcom_message.o: script/welcom_message.cpp.o
+
+.PHONY : script/welcom_message.o
+
+# target to build an object file
+script/welcom_message.cpp.o:
+	$(MAKE) -f CMakeFiles/welcom.dir/build.make CMakeFiles/welcom.dir/script/welcom_message.cpp.o
+.PHONY : script/welcom_message.cpp.o
+
+script/welcom_message.i: script/welcom_message.cpp.i
+
+.PHONY : script/welcom_message.i
+
+# target to preprocess a source file
+script/welcom_message.cpp.i:
+	$(MAKE) -f CMakeFiles/welcom.dir/build.make CMakeFiles/welcom.dir/script/welcom_message.cpp.i
+.PHONY : script/welcom_message.cpp.i
+
+script/welcom_message.s: script/welcom_message.cpp.s
+
+.PHONY : script/welcom_message.s
+
+# target to generate assembly for a file
+script/welcom_message.cpp.s:
+	$(MAKE) -f CMakeFiles/welcom.dir/build.make CMakeFiles/welcom.dir/script/welcom_message.cpp.s
+.PHONY : script/welcom_message.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... edit_cache"
+	@echo "... welcom"
 	@echo "... hello"
 	@echo "... script/hello.o"
 	@echo "... script/hello.i"
 	@echo "... script/hello.s"
+	@echo "... script/welcom_message.o"
+	@echo "... script/welcom_message.i"
+	@echo "... script/welcom_message.s"
 .PHONY : help
 
 

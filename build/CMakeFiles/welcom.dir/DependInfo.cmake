@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/robond/workspace/Build_my_world_with_Gazebo/script/hello.cpp" "/home/robond/workspace/Build_my_world_with_Gazebo/build/CMakeFiles/hello.dir/script/hello.cpp.o"
+  "/home/robond/workspace/Build_my_world_with_Gazebo/script/welcom_message.cpp" "/home/robond/workspace/Build_my_world_with_Gazebo/build/CMakeFiles/welcom.dir/script/welcom_message.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
